@@ -1,0 +1,35 @@
+{
+  "name": "mnist",
+  "classes_per_split": {
+    "TRAIN": 10,
+    "VALID": 0,
+    "TEST": 0
+  },
+  "images_per_class": {
+    "0": 980,
+    "1": 1135,
+    "2": 1032,
+    "3": 1010,
+    "4": 982,
+    "5": 892,
+    "6": 958,
+    "7": 1028,
+    "8": 974,
+    "9": 1009
+  },
+  "class_names": {
+    "0": "class_0",
+    "1": "class_1",
+    "2": "class_2",
+    "3": "class_3",
+    "4": "class_4",
+    "5": "class_5",
+    "6": "class_6",
+    "7": "class_7",
+    "8": "class_8",
+    "9": "class_9"
+  },
+  "path": "e:\\data\\tf-meta-dataset\\records\\mnist",
+  "file_pattern": "{}.tfrecords",
+  "__class__": "DatasetSpecification"
+}
