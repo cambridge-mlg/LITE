@@ -1,7 +1,7 @@
 # LITE: Memory Efficient Meta-Learning with Large Images
 This repository contains the code to reproduce the VTAB+MD few-shot classification experiments carried out in:
-"Memory Efficient Meta-Learning with Large Images". The code for the ORBIT experiments can be found
-[here](https://github.com/microsoft/ORBIT-Dataset).
+[Memory Efficient Meta-Learning with Large Images](https://arxiv.org/pdf/2107.01105.pdf). The code for the ORBIT
+experiments can be found [here](https://github.com/microsoft/ORBIT-Dataset).
 
 ## Dependencies
 This code requires the following:
@@ -101,3 +101,13 @@ To train and test on VTAB+MD:
 ## Contact
 To ask questions or report issues, please open an issue on the issues tracker.
 
+## Citation
+If you use this code, please cite our [paper](https://arxiv.org/pdf/2107.01105.pdf).
+```
+@article{bronskill2021memory,
+title={Memory Efficient Meta-Learning with Large Images},
+author={Bronskill, John and Massiceti, Daniela and Patacchiola, Massimiliano and Hofmann, Katja and Nowozin, Sebastian and Turner, Richard E.},
+journal={arXiv preprint arXiv:2107.01105},
+year={2021}
+}
+```
