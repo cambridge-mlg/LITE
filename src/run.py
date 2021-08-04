@@ -428,8 +428,9 @@ class Learner:
 
         # now select some random images for that will have gradients and process those
         embeddings = []
-        torch.set_grad_enabled(True)
-        embeddings.append(self.model.get_context_features(images[grad_indices], meta_learning_state))
+        if len(grad_indices) > 0:
+            torch.set_grad_enabled(True)
+            embeddings.append(self.model.get_context_features(images[grad_indices], meta_learning_state))
 
         # now add in the no_grad images
         embeddings.extend(self.feature_cache[no_grad_indices])

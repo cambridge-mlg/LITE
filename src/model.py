@@ -60,8 +60,9 @@ class FewShotClassifier(nn.Module):
 
         # now select some random images for that will have gradients and process those
         embeddings = []
-        torch.set_grad_enabled(True)
-        embeddings.append(self.set_encoder.pre_pool(context_images[grad_indices]))
+        if len(grad_indices) > 0:
+            torch.set_grad_enabled(True)
+            embeddings.append(self.set_encoder.pre_pool(context_images[grad_indices]))
 
         # now add in the no_grad images
         embeddings.extend(self.reps_cache[no_grad_indices])
