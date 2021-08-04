@@ -103,14 +103,15 @@ class Learner:
         parser.add_argument("--learning_rate", "-lr", type=float, default=0.001, help="Learning rate.")
         parser.add_argument("--tasks_per_step", type=int, default=16,
                             help="Number of tasks between parameter optimizations.")
-        parser.add_argument("--training_iterations", "-i", type=int, default=15000,
+        parser.add_argument("--training_iterations", "-i", type=int, default=10000,
                             help="Number of meta-training iterations.")
         parser.add_argument("--max_way_train", type=int, default=50, help="Maximum way of meta-train task.")
         parser.add_argument("--max_support_train", type=int, default=500,
                             help="Maximum support set size of meta-train task.")
         parser.add_argument("--image_size", type=int, default=224, help="Image height and width.")
-        parser.add_argument("--batch_size", type=int, default=50, help="Size of batch.")
-
+        parser.add_argument("--batch_size", type=int, default=40, help="Size of batch.")
+        parser.add_argument("--h", type=int, default=40,
+                            help="Number of support set samples to back-propagate when training with LITE.")
         # testing parameters
         parser.add_argument("--test_model_path", "-m", default=None, help="Path to model to load and test.")
         parser.add_argument("--val_freq", type=int, default=5000, help="Number of iterations between validations.")
@@ -208,9 +209,11 @@ class Learner:
         # We'll split the context set into two: the first part will be of size batch_size and we'll use gradients
         # for that. The second part will be everything else and we'll use no gradients for that, so we only need to
         # compute that once per task.
-        indices = np.random.permutation(context_images.size(0))
-        grad_indices = indices[0: self.args.batch_size]
-        no_grad_indices = indices[self.args.batch_size:]
+        context_size = context_images.size(0)
+        indices = np.random.permutation(context_size)
+        h = min(self.args.h, context_size)  # number of example to back propagate
+        grad_indices = indices[0: h]
+        no_grad_indices = indices[h:]
 
         self.model.build_task_representation_with_split_batch(context_images, grad_indices, no_grad_indices)
         context_features = self._compute_features_with_split_batch(context_images, grad_indices, no_grad_indices,

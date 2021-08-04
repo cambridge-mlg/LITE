@@ -62,21 +62,21 @@ To train and test on VTAB+MD:
      
    Meta-train and meta-test on MD-v2: 
    
-   ```python run.py --data_path <path to meta-dataset records> -i 10000 --batch_size 40 -c <path to checkpoint directory>```
+   ```python run.py --data_path <path to meta-dataset records> -c <path to checkpoint directory>```
 
    Meta-Test on VTAB-v2:
    
-   ```python run.py --batch_size 40 -c <path to checkpoint directory> --mode test_vtab --download_path_for_tensorflow_datasets <path to where you want the TensorFlow Datasets downloaded> --download_path_for_sun397_dataset <path to sun397 images> -m <path to model to test>```
+   ```python run.py -c <path to checkpoint directory> --mode test_vtab --download_path_for_tensorflow_datasets <path to where you want the TensorFlow Datasets downloaded> --download_path_for_sun397_dataset <path to sun397 images> -m <path to model to test>```
 
    **<ins>No LITE, Small Task Size, and 224x224 image size<ins>**:
 
    Meta-train and meta-test on MD-v2:
 
-   ```python run.py --data_path <path to meta-dataset records> --train_method small_task -i 15000 --max_support_train 40 --max_way_train 30 --batch_size 40 -c <path to checkpoint directory>```
+   ```python run.py --data_path <path to meta-dataset records> --train_method small_task -i 15000 --max_support_train 40 --max_way_train 30 -c <path to checkpoint directory>```
 
    Meta-Test on VTAB-v2:
    
-   ```python run.py --batch_size 40 -c <path to checkpoint directory> --mode test_vtab --download_path_for_tensorflow_datasets <path to where you want the TensorFlow Datasets downloaded> --download_path_for_sun397_dataset <path to sun397 images> -m <path to model to test>```
+   ```python run.py -c <path to checkpoint directory> --mode test_vtab --download_path_for_tensorflow_datasets <path to where you want the TensorFlow Datasets downloaded> --download_path_for_sun397_dataset <path to sun397 images> -m <path to model to test>```
 
    **<ins>No LITE and 84x84 image size<ins>**:
 
@@ -92,11 +92,11 @@ To train and test on VTAB+MD:
 
    Meta-Test on MD-v2:
    
-   ```python run.py --data_path <path to meta-dataset records> --batch_size 40 -c <path to existing checkpoint directory> --mode test -m ../models/meta-trained_lite_224.pt```
+   ```python run.py --data_path <path to meta-dataset records> -c <path to existing checkpoint directory> --mode test -m ../models/meta-trained_lite_224.pt```
 
    Meta-Test on VTAB-v2:
 
-   ```python run.py --batch_size 40 -c <path to existing checkpoint directory> --mode test_vtab --download_path_for_tensorflow_datasets <path to where you want the TensorFlow Datasets downloaded> --download_path_for_sun397_dataset <path to sun397 images> -m ../models/meta-trained_lite_224.pt```
+   ```python run.py -c <path to existing checkpoint directory> --mode test_vtab --download_path_for_tensorflow_datasets <path to where you want the TensorFlow Datasets downloaded> --download_path_for_sun397_dataset <path to sun397 images> -m ../models/meta-trained_lite_224.pt```
 
 ## Contact
 To ask questions or report issues, please open an issue on the issues tracker.
