@@ -104,10 +104,12 @@ To ask questions or report issues, please open an issue on the issues tracker.
 ## Citation
 If you use this code, please cite our [paper](https://arxiv.org/pdf/2107.01105.pdf).
 ```
-@article{bronskill2021memory,
+@inproceedings{
+bronskill2021memory,
 title={Memory Efficient Meta-Learning with Large Images},
-author={Bronskill, John and Massiceti, Daniela and Patacchiola, Massimiliano and Hofmann, Katja and Nowozin, Sebastian and Turner, Richard E.},
-journal={arXiv preprint arXiv:2107.01105},
-year={2021}
+author={John F Bronskill and Daniela Massiceti and Massimiliano Patacchiola and Katja Hofmann and Sebastian Nowozin and Richard E Turner},
+booktitle={Thirty-Fifth Conference on Neural Information Processing Systems},
+year={2021},
+url={https://openreview.net/forum?id=x2pF7Tt_S5u}
 }
 ```
